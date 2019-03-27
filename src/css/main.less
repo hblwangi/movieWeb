@@ -1,0 +1,193 @@
+@color: rgb(84, 146, 204);
+@colorFont: rgb(183, 224, 240);
+@itemWidth: 1000px / 5;
+
+.content-style(@wid: 1080px){
+    width: @wid;
+    margin: 0px auto;
+}
+.item-width{
+    width: @itemWidth
+}
+
+.header{
+    background: @color;
+    height: 88px;
+
+    .content{
+        .content-style;
+        ul{
+            a:hover li{
+                color: #fff;
+            }
+            margin-left: -20px;
+            li{
+                list-style: none;
+                float: left;
+                height: 88px;
+                line-height: 88px;
+                margin-left: 20px;
+                color: @colorFont;
+                transition: all .4s;
+            }
+            
+        }
+        
+    }
+}
+
+.banner{
+    width: 100%;
+    height: 400px;
+    background: url("../images/banner.jpg") no-repeat center;
+    background-size: cover;
+}
+
+.container{
+    background: #eee;
+    padding-top: 35px;
+    .content{
+        .content-style;
+        ul{
+            margin-left: -10px;
+            display: flex;
+            justify-content: space-between;
+            li{
+                .item-width;
+                height: 300px;
+                background: @color;
+                border-radius: 10px;
+                box-shadow: rgba(0,0,0,.3) 2px 2px 5px;
+                transition:all .4s;
+            }
+            li:hover{
+                transform:scale(1.1); 
+            }
+            .mo:nth-of-type(1){
+                background-image: url("../images/m_1.jpg")
+            }
+            .mo:nth-of-type(2){
+                background-image: url("../images/m_2.jpg")
+            }
+            .mo:nth-of-type(3){
+                background-image: url("../images/m_3.jpg")
+            }
+            .mo:nth-of-type(4){
+                background-image: url("../images/m_4.jpg")
+            }
+            .mo:nth-of-type(5){
+                background-image: url("../images/m_5.jpg")
+            }
+            
+            
+        }
+        
+    }
+    .listTitle{
+        text-align: center;
+        font-size: 24px;
+        padding-bottom: 30px;
+        color: #5492cc;
+    }
+    .list-content{
+        .subTitle{
+            color: #5492cc;
+            padding: 18px 0;
+            font-size: 20px;
+        }
+        .content-style;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+        }
+        .movieItem{
+            width: 120px;
+            div{
+                height: 160px;
+                border-radius: 8px;
+                transition:all .4s;
+                box-shadow: rgba(0,0,0,.3) 2px 2px 5px;
+                cursor: pointer;
+            }
+            div:hover{
+                transform:scale(1.05); 
+            }
+            .name{
+                padding: 10px 0;
+                font-size: 13px;
+                text-align: center;
+                color: royalblue;
+                overflow:hidden;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+            }
+            .score{
+                text-align: center;
+                font-size: 12px;
+                color: #666
+            }
+        }
+    }
+
+    .page{
+        border-top: #aaa 1px solid;
+        width: 900px;
+        height: 100px;
+        padding: 20px 0;
+        margin: 20px auto;
+        .firstPage,.prevPage,.nextPage,.lastPage{
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: #aaa;
+            border-radius: 3px;
+            margin: 0 5px;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        ul{
+            float: left;
+            li{
+                float: left;
+                width: 30px;
+                height: 30px;
+                background: #aaa;
+                border-radius: 3px;
+                margin: 0 5px;
+                cursor: pointer;
+                color: #fff;
+                text-align: center;
+                line-height: 30px;
+            }
+            .active{
+                background: royalblue;
+            }
+        }
+
+        .goPage{
+            float: left;
+            line-height: 30px;
+            color: royalblue;
+            margin-left: 20px;
+            input{
+                width: 40px;
+            }
+        }
+        .pageTotle{
+            float: right;
+            line-height: 30px;
+            color: royalblue;
+        }
+    }
+}
+
+
+.news{
+    position: relative;
+    width: 1080px;
+    margin: 50px auto;
+}

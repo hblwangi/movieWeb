@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet/less" type="text/css" href="../css/main.less">
+    <script src="less.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="content">
+            <ul class="clear-float">
+                <a href="./home.html">
+                    <li>Home</li>
+                </a>
+                <a href="./list.html">
+                    <li>List</li>
+                </a>
+                <a href="#">
+                    <li>Categray</li>
+                </a>
+                <a href="#">
+                    <li>Personal</li>
+                </a>
+                <a href="#">
+                    <li>Chart</li>
+                </a>
+                <a href="./weather.html">
+                    <li>Weather</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="container list-container">
+        <div class="listTitle">分类推荐</div>
+        <div class="list-content clear-float">
+            <p class="subTitle">动作电影</p>
+            <ul class="clear-float movieList dzMovie"></ul>
+            <p class="subTitle">喜剧电影</p>
+            <ul class="clear-float movieList khMovie"></ul>
+            <p class="subTitle">恐怖电影</p>
+            <ul class="clear-float movieList kbMovie"></ul>
+            <p class="subTitle">武侠电影</p>
+            <ul class="clear-float movieList jdMovie"></ul>
+            <p class="subTitle">悬疑电影</p>
+            <ul class="clear-float movieList xyMovie"></ul>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+    function cba(data){ getData(data, $(".dzMovie")) }
+    function cbb(data){ getData(data, $(".khMovie")) }
+    function cbc(data){ getData(data, $(".kbMovie")) }
+    function cbd(data){ getData(data, $(".jdMovie")) }
+    function cbe(data){ getData(data, $(".xyMovie")) }
+
+    function getData(data, elem){
+        let dataList = data.data[0].result
+        let str = "";
+        for (let i = 0; i < dataList.length; i++) {
+            str += `<li class="movieItem">
+                <div style="background:url('${dataList[i].kg_pic_url}') center;background-size: cover;" title="${dataList[i].ename}"></div>
+                <p class="name" title="${dataList[i].ename}">${dataList[i].ename}</p>
+                <p class="score">${dataList[i].additional}</p>
+            </li>`
+        }
+        elem.html(str)
+    }
+    </script>
+    <script src="https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?resource_id=28286&from_mid=1&&format=json&ie=utf-8&oe=utf-8&query=动作电影&sort_key=16&sort_type=1&stat0=&stat1=&stat2=&stat3=&pn=0&rn=7&cb=cba"></script>
+    <script src="https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?resource_id=28286&from_mid=1&&format=json&ie=utf-8&oe=utf-8&query=喜剧电影&sort_key=16&sort_type=1&stat0=&stat1=&stat2=&stat3=&pn=0&rn=7&cb=cbb"></script>
+    <script src="https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?resource_id=28286&from_mid=1&&format=json&ie=utf-8&oe=utf-8&query=恐怖电影&sort_key=16&sort_type=1&stat0=&stat1=&stat2=&stat3=&pn=0&rn=7&cb=cbc"></script>
+    <script src="https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?resource_id=28286&from_mid=1&&format=json&ie=utf-8&oe=utf-8&query=武侠电影&sort_key=16&sort_type=1&stat0=&stat1=&stat2=&stat3=&pn=0&rn=7&cb=cbd"></script>
+    <script src="https://sp0.baidu.com/8aQDcjqpAAV3otqbppnN2DJv/api.php?resource_id=28286&from_mid=1&&format=json&ie=utf-8&oe=utf-8&query=悬疑电影&sort_key=16&sort_type=1&stat0=&stat1=&stat2=&stat3=&pn=0&rn=7&cb=cbe"></script>
+</body>
+</html>

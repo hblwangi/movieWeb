@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/init.css">
+    <link rel="stylesheet/less" type="text/css" href="../css/main.less">
+    <script src="less.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../css/360css.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <div class="content">
+            <ul class="clear-float">
+                <a href="#"><li>Home</li></a>
+                <a href="./list.html"><li>List</li></a>
+                <a href="./categray.html"><li>Categray</li></a>
+                <a href="#"><li>Personal</li></a>
+                <a href="#"><li>Chart</li></a>
+                <a href="./weather.html"><li>Weather</li></a>
+            </ul>
+        </div>
+    </div>
+    <div class="banner">
+        
+    </div>
+    <div class="container">
+        <div class="content clear-float">
+            <ul class="clear-float">
+                <li class="mo"></li>
+                <li class="mo"></li>
+                <li class="mo"></li>
+                <li class="mo"></li>
+                <li class="mo"></li>
+            </ul>
+        </div>
+        <div class="news">
+            <div class="news-left">
+                <div class="news-hd-wrapper">
+                    <div class="news-tab">电影资讯</div>
+                </div>
+                <div class="news-bd-wrapper">
+                    <ul class="news-content-wrapper news-content-active"></ul>
+                </div>
+            </div>
+
+            <div class="news-right">
+                <div class="side-container">
+                    <div class="news-side">
+                        <div class="side-hd">
+                            <div class="side-tab">社会新闻</div>
+                        </div>
+                        <div class="side-bd">
+                            <div class="side-tips">
+                                <ul class="side-wrapper"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    
+    <script>
+    function tcb(data){
+        let title;
+        let time;
+        let str = "";
+        console.log(data.data)
+        for (let i = 0; i < data.data.length; i++) {
+            time = data.data[i].publish_time;
+            title = data.data[i].title;
+            let irs_imgs = null;
+            if (data.data[i].irs_imgs["273X145"]) {
+                irs_imgs = data.data[i].irs_imgs["273X145"]
+            } else {
+                irs_imgs = data.data[i].irs_imgs["295X195"]
+            }
+
+            if (irs_imgs.length == "0") {
+                str += `<li class="news-packet packet-news1">
+                    <a class="news-link label-link clearfix">
+                        <h2 class="news1-h2"><span class="news1-link">${title}</span></h2>
+                        <div class="news1-info"><span class="news0-date currentTimeStamp">${time}</span></div>
+                    </a>
+                </li>`
+            } else if (irs_imgs.length == "3") {
+                str += `<li class="news-packet packet-news3">
+                    <a class="news-link label-link clearfix">
+                        <h2 class="news3-h2"><span class="news3-link">${title}</span></h2>
+                        <div class="news3-images">
+                            <span class="images-link news3-images-link"><img class="news3-image" src="${irs_imgs[0]}"/></span>
+                            <span class="images-link news3-images-link"><img class="news3-image" src="${irs_imgs[1]}"/></span>
+                            <span class="images-link news3-images-link"><img class="news3-image" src="${irs_imgs[2]}"/></span>
+                            <span class="images-link news3-images-link"><img class="news3-image" src="${data.data[i].img}"/></span>
+                        </div>
+                        <div class="news3-info"><span class="news0-date currentTimeStamp">${time}</span></div>
+                    </a>
+                </li>`
+            } else {
+                str += `<li class="news-packet packet-news2">
+                    <a class="news-link label-link clearfix">
+                        <div class="news2-images">
+                            <span class="images-link news2-images-link"><img class="news2-image" src="${data.data[i].irs_imgs["273X145"][0]}"/></span>
+                        </div>
+                        <div class="news2-body">
+                            <h2 class="news2-h2"><span class="news2-link">${title}</span></h2>
+                            <div class="news2-info"><span class="news0-date currentTimeStamp">${time}</span></div>
+                        </div>
+                    </a>    
+                </li>`
+            }
+            
+        }
+        $(".news-content-wrapper").html(str)
+    }
+
+    function scb(data){
+        let ds = data.data;
+        let str = "";
+        for (let i = 0; i < ds.length; i++) {
+            str += `<li class="am-item"><a class="label-link am-link clearfix">
+                <div class="am-img-container"><img class="am-img" src="${ds[i].bimg}"/></div>
+                <div class="am-title-wrap">
+                    <div class="am-title-container">
+                        <span class="am-bd-title">${ds[i].title}</span>
+                    </div>
+                </div>
+            </a></li>`
+        }
+        $(".side-wrapper").html(str)
+    }
+
+    </script>
+    <script src="https://pacaio.match.qq.com/irs/rcd?cid=135&token=6e92c215fb08afa901ac31eca115a34f&callback=tcb&ext=movie&page=0&num=15&expIds=20190323A0JIL8|20190323A0JGI9|20190323A0IOTU|20190322A060AD|20190322A06VF6&callback=jspnphotnews"></script>
+    <script src="https://pacaio.match.qq.com/irs/rcd?cid=108&token=349ee24cdf9327a050ddad8c166bd3e3&ext=&page=0&expIds=&callback=scb"></script>
+</body>
+</html>

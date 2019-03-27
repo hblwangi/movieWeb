@@ -1,0 +1,115 @@
+.skin1,.skin2,.skin4,.skin5,.skin6{height:100%;position:relative}
+.seabar,.skin1,.skin2,.skin4,.skin5,.skin6{position:relative}
+.clearfix,.intro li,.morewether,.slide-img,.tab,.wether{*zoom:1}
+.img-l dl,.img-r img,.intro li,.morewether,.slide,.slide-img,.tab,.wether{overflow:hidden}
+body,dd,div,dl,dt,h1,h2,h3,h4,h5,h6,li,ol,p,ul{margin:0;padding:0}
+ol,ul{list-style:none}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
+table{border-collapse:collapse;border-spacing:0}
+img{border:0;vertical-align:top}
+input,select,textarea{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}
+button,input{outline:0}
+body{background:#f2f4f3;font:12px/1.5 \5FAE\8F6F\96C5\9ED1,\5b8b\4f53,sans-serif}
+a{color:#0055a6;text-decoration:none}
+.skin{background:url(http://p3.qhmsg.com/t01a2d0bd1a198320b8.jpg) repeat-x fixed #fbfcff}
+.skin1{background:url(http://p1.qhmsg.com/t01d24f69d69087f299.png) repeat-x fixed}
+.skin2{background:url(http://p3.qhmsg.com/t01bcd07730e03dd6b7.png) repeat-x fixed}
+.skin3{background:url(http://p3.qhmsg.com/t011291cdeeb4a12918.png) repeat-x fixed}
+.skin4{background:url(http://p5.qhmsg.com/t011a625057969ce63a.png) repeat-x fixed #395166}
+.skin5,.skin6{background:url(http://p1.qhmsg.com/t01adb794bb858deedf.png) repeat-x fixed}
+.header{height:90px;line-height:90px;margin:0 auto;padding:0 30px;width:920px}
+.logo{background:url(http://p4.qhmsg.com/t0127467a51cdc489fc.png) no-repeat;_background-image:url(../img//logo-8png);float:left;height:29px;margin-top:35px;width:183px}
+.seabar{float:right;width:650px}
+.searchtxt{background:0;background-color:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);height:34px;height:36px\9;line-height:34px;padding:0 10px;width:415px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff, endColorstr=#19ffffff)}
+.searchbtn,.searchtxt{border-radius:2px;vertical-align:middle;zoom:1}
+.searchbtn{background:0;background-color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:16px;font-weight:700;height:36px;line-height:36px;width:98px;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4cffffff, endColorstr=#4cffffff)}
+.nav{position:absolute;right:0;top:0}
+.city,.slide{position:relative}
+.tab{border-bottom:1px solid rgba(255,255,255,.2)}
+.slide{margin:0 auto;width:980px}
+.slide-img{width:3000px}
+.slide-list{background:url(http://p1.qhmsg.com/t0118441fde996bc22d.png) no-repeat;height:30px;line-height:30px;text-align:center}
+.txt-r,.wetherapp{text-align:right}
+.content{margin:0 auto;padding:0 30px 30px;width:920px}
+.city{height:40px;margin-top:15px}
+.icon-feng,.icon-shi,.wethericon{height:28px;display:inline-block}
+.citybtn{cursor:pointer;padding:2px 8px;vertical-align:middle}
+.wetherintro{float:left}
+.wethercity{color:#fff;font-size:24px}
+.wethertime{color:rgba(255,255,255,.6);font-size:16px}
+.wetherdetail,.wethericon{color:#fff;font-size:16px}
+.wethericon{border-radius:2px;line-height:28px;padding:0 8px}
+.yanzhong{background-color:#9a1c8d;border:1px solid #b962b0}
+.zhongdu{background-color:#8f08bb;border:1px solid #a554bf}
+.zhong{background-color:#a71811;border:1px solid #ab4c48}
+.qing{background-color:#db7e06;border:1px solid #dcb37d}
+.liang{background-color:#ffc000;border:1px solid #fcda74}
+.youxiu{background-color:#33c704;border:1px solid #92d47e}
+.wetherdetail{margin-top:40px;width:250px}.icon-feng,
+
+.icon-shi{background:url(http://p4.qhmsg.com/t012dd226c54bd13f0e.png) no-repeat;margin-right:5px;vertical-align:middle;width:29px}
+.icon-shi{background-position:0 -28px}
+.wetherapp{float:right;width:285px}
+.img-l img,.nav li,.slide-img li,.tab li{float:left}
+.morewether li,.tab li{text-align:center;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19ffffff, endColorstr=#19ffffff);zoom:1}
+.wetherapptxt{background:url(http://p7.qhimg.com/t01bc1c19198c5b9cdf.png) no-repeat;height:85px;margin:15px 0 40px;width:285px}
+.btn-app,.wetherapptxt{line-height:200px;overflow:hidden}
+.btn-app{background:url(http://p1.qhmsg.com/t01261737459a958cba.png) no-repeat;display:inline-block;height:53px;width:203px}
+.morewether{margin-top:35px;margin-left:-5px;padding-bottom:5px}.colora{color:rgba(255,255,255,.5)}
+.otherinfo{border-top:1px solid rgba(255,255,255,.3)}
+.icon-tu{font-size:24px;line-height:24px;padding:20px 0 10px}
+.gotop{bottom:20px;margin-right:-580px;position:fixed;right:50%}
+.gotop-btn{background:url(http://p4.qhmsg.com/t01bdc27e6240a9cd80.png) no-repeat;display:block;height:52px;text-indent:-9999px;width:62px}
+a:hover{color:#005db5}
+.intro dl,.nav li a,.tab li a{color:#fff}
+.intro dd,.slide-list li{background:url(http://p5.qhmsg.com/t0147122fa2b5601ed1.png) no-repeat}
+.nav li{margin-left:25px}
+.tab ul{height:36px;margin:0 auto;padding:0 30px;width:920px}
+.tab li{background-color:rgba(0,0,0,.1);border-radius:2px 2px 0 0;font-size:14px;height:36px;line-height:36px;margin-right:5px;width:130px}
+.slide-list li{background-position:0 0;cursor:pointer;display:inline-block;*display:inline;height:12px;margin:8px 2px;padding:0 5px;width:12px;*zoom:1}
+.intro li{border-bottom:1px solid rgba(255,255,255,.1);padding:60px 10px}
+.intro dl{font-size:20px;margin-top:100px;text-shadow:2px 2px 1px #333}
+.intro dt{margin-bottom:10px}
+.intro dd{background-position:0 -38px;font-size:16px;line-height:26px;padding-left:20px}
+.img-l img{margin:0 80px}
+.img-r img{*float:right}
+.img-r dl{float:left;margin-left:160px;margin-right:170px}
+.img-rw dl{margin-left:120px;margin-right:100px}
+.img-lw dl{margin-top:30px}
+.city select{height:22px;margin-right:5px;width:63px}
+.wetherdetail strong{font:400 94px/94px arial}
+.wetherdetail ul{border-top:1px solid rgba(255,255,255,.4);padding-top:8px}
+.wetherdetail li{float:left;width:125px}
+.wetherapp img{margin-right:70px}
+.morewether li{background-color:rgba(255,255,255,.1);border-radius:2px;box-shadow:1px 1px 2px rgba(0,0,0,.1),-1px -1px 2px rgba(0,0,0,.1);color:#fff;float:left;font-size:16px;height:190px;margin-left:5px;padding:10px;width:160px}.otherinfo span{font-size:24px;font-family:arial;margin-right:5px}.icon-tu i{background:url(http://p3.qhmsg.com/t011dcb216f11476b0f.png) no-repeat;display:inline-block;height:70px;margin-bottom:10px;width:70px}
+
+i.icon-qing{background-position:0 0}
+i.icon-duoyun{background-position:-72px 0}
+i.icon-yintian{background-position:-144px 0}
+i.icon-wu{background-position:-216px 0}
+i.icon-bingbao{background-position:-288px 0}
+i.icon-shachen{background-position:-360px 0}
+i.icon-leizhenyu{background-position:0 -72px}
+i.icon-zhenyu{background-position:-72px -72px}
+i.icon-xiaoyu{background-position:-144px -72px}
+i.icon-zhongyu{background-position:-216px -72px}
+i.icon-dayu{background-position:-288px -72px}
+i.icon-baoyu{background-position:-360px -72px}
+i.icon-yujiaxue{background-position:0 -144px}
+i.icon-chenxue{background-position:-72px -144px}
+i.icon-xiaoxue{background-position:-144px -144px}
+i.icon-zhongxue{background-position:-216px -144px}
+i.icon-daxue{background-position:-288px -144px}
+i.icon-baoxue{background-position:-360px -144px}
+i.icon-yewanqing{background-position:0 -216px}
+i.icon-yewanduoyun{background-position:-72px -216px}
+i.icon-wuxinxi{background-position:-144px -216px}
+i.icon-kulian{background-position:-216px -216px}
+
+.nav li a{font:700 16px/36px \5FAE\8F6F\96C5\9ED1}.clearfix:after{clear:both;content:"";display:block;height:0;line-height:0;visibility:hidden}.skin1 .skinmore{background:url(http://p1.qhmsg.com/t01eedf15a70a39c08a.png) no-repeat;height:339px;left:50%;margin-left:-250px;position:absolute;top:0;width:497px}.skin2 .skinmore{background:url(http://p5.qhmsg.com/t015e70bd2cbef6ef48.png) center 0 no-repeat;height:452px;left:50%;position:absolute;top:0;width:451px}.skin4 .skinmore{background:url(http://p5.qhmsg.com/t01809a9c1c8ed9c4be.png) center 0 no-repeat;height:602px;left:20%;position:absolute;top:110px;width:632px}.skin5 .skinmore{background:url(http://p3.qhmsg.com/t018696065b6b5e9156.png) center 0}.skin5 .skinmore,.skin6 .skinmore{height:100%;left:0;position:absolute;top:0;width:100%}.skin6 .skinmore{background:url(http://p4.qhmsg.com/t0191e46e3e10bc96e3.png) center 0}.gotop-btn:hover{background-position:0 -54px}.tab li.current{background-color:rgba(255,255,255,.4);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);zoom:1}.slide-list li.current{background-position:0 -22px}.intro li.nobor{border:0}.morewether li,:root .searchbtn,:root .searchtxt{filter:none\9}
+
+.positionInfo{
+    margin: 20px 0;
+    font-size: 20px;
+    color: #92d47e;
+}

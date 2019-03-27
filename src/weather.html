@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/init.css">
+    <link rel="stylesheet" href="./css/weather.css">
+</head>
+<body>
+        <!--　skin1晴天　skin2雷电　skin3沙尘　skin4雾　skin5雪 skin6雨 -->
+            <div class="skinmore"></div>
+            <div class="skinmore2"></div>
+            
+            <div class="content" style="padding-top:20px;">    
+                <a href="./home.html" style="color:cornsilk">&lt;&lt; Go Home</a>
+                <div class="positionInfo">
+                    <p>位置信息：</p>
+                    <p>您来自：<span class="sheng"></span><span class="shi"></span><span class="xian"></span></p>
+                    <p>您的位置在：
+                        北纬 <span class="lat"></span> 东经 <span class="lng"></span> IP地址为<span class="ipAddress"></span>
+                    </p>
+                </div>
+                <!-- S 具体城市天气及右侧ＡＰＰ下载　-->
+                <div class="wether">
+                    <div class="wetherintro">
+                        <div id="cityinfo">
+                            <h4 class="wethercity"></h4>
+                            <p class="wethertime"></p>
+                        </div>
+                        <div class="wetherdetail">
+                            <strong id="temperature"></strong><span id="weathertype"></span>
+                            <ul>
+                                <li><i class="icon-shi"></i>湿度 <span id="humidity"></span>%</li>
+                                <li class="txt-r"><i class="icon-feng"></i><span id="winddir"></span> <span id="windpower"></span></li>
+                            </ul>
+                        </div>                
+                    </div>
+                    
+                </div>
+                <div class="morewether">
+                    <ul id="foreast"></ul>
+                </div>
+            </div>
+            <p style="color:cornflowerblue;font-size: 30px;font-weight: bold;text-align: center; margin-top: 20px;">
+                未来48小时每小时气温变化</p>
+            <div id="echarts" style="width:1080px;height:500px; margin: 20px auto"></div>
+        </div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="./js/echarts.common.min.js"></script>
+    <script>
+    const weatherIcon = {
+        "晴": "qing", "多云": "duoyun", "阴": "yintian", "雾": "wu", "冰雹": "bingbao", "沙尘": "shachen", 
+        "雷阵雨": "leizhenyu", "阵雨": "zhenyu", "小雨": "xiaoyu", "中雨": "zhongyu", "大雨": "dayu", "暴雨": "baoyu", "雨夹雪": "yujiaxue", 
+        "尘雪": "chenxue", "小雪": "xiaoxue", "中雪": "zhongxue", "大雪": "daxue", "暴雪": "baoxue", "夜晚晴": "yewanqing", "夜晚多云": "yewanduoyun",
+        "无信息": "wuxinxi",
+    }
+    function locationcb(data){
+        let res = data.result;
+        $(".sheng").html(res.ad_info.nation);
+        $(".shi").html(res.ad_info.province);
+        $(".xian").html(res.ad_info.city);
+
+        $(".lat").html(res.location.lat);
+        $(".lng").html(res.location.lng);
+        $(".ipAddress").html(res.ip);
+
+        $(".wethercity").html(res.ad_info.city)
+    }
+    function insertStr(soure, start, newStr){   
+        return soure.slice(0, start) + newStr + soure.slice(start);
+    }
+    function weatherCb(data){
+        console.log(data)
+        let res = data.data;
+        let str = "";
+        let _NewOccurTime  = insertStr(insertStr(insertStr(insertStr(insertStr(res.observe.update_time,4,"/"),7,"/"),10,"  "),14,":"),17,":00");
+        $(".wethertime").html(_NewOccurTime + " 发布");
+        $("#temperature").html(res.observe.degree + "°");
+        $("#weathertype").html(res.observe.weather);
+        $("#humidity").html(res.observe.humidity);
+        let wea = weatherIcon[res.forecast_24h[0].day_weather];
+        if (wea == "yintian" || "qing" || "duoyun" || "yewanqing" || "yewanduoyun") {
+            $("body").attr("class", "skin1")
+        } else if (wea == "shachen") {
+            $("body").attr("class", "skin3")
+        } else if (wea == "leizhenyu") {
+            $("body").attr("class", "skin2")
+        } else if (wea == "wu") {
+            $("body").attr("class", "skin4")
+        } else if (wea == "yujiaxue" || "zhenyu" || "xiaoyu" || "zhongyu" || "dayu" || "baoyu") {
+            $("body").attr("class", "skin5")
+        } else {
+            $("body").attr("class", "skin6")
+        };
+        
+        for (let i = 0; i < 5; i++) {
+            str += `
+            <li>
+                <p class="colora">${res.forecast_24h[i].time}</p>
+                <p class="icon-tu"><i class="icon-${weatherIcon[res.forecast_24h[i].day_weather]}"></i><br>${res.forecast_24h[i].day_weather}</p>
+                <p class="otherinfo"><span>${res.forecast_24h[i].min_degree}~${res.forecast_24h[i].max_degree}°</span>${res.forecast_24h[i].day_wind_direction}</p>
+            </li>
+            `;
+        }
+        $("#foreast").html(str);
+
+        //echarts
+        var myChart = echarts.init(document.getElementById('echarts'));
+        let echartsDates = [];
+        let echartsDegree = [];
+        let echartsWeather = [];
+        let echartsWindDirection = [];
+        let echartsWindPower = [];
+        for (let i in res.forecast_1h) {
+            echartsDates.push(insertStr(insertStr(insertStr(String(res.forecast_1h[i].update_time/Math.pow(10, 4)),4,"/"),7,"/"),10," ") + "时")
+            echartsDegree.push(res.forecast_1h[i].degree);
+            echartsWeather.push(res.forecast_1h[i].weather);
+            echartsWindDirection.push(res.forecast_1h[i].wind_direction);
+            echartsWindPower.push(res.forecast_1h[i].wind_power)
+        }
+
+        $("#winddir").html(echartsWindDirection[0]);
+        $("#windpower").html(echartsWindPower[0] + "级");
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params, ticket, callback) {
+                    let tooltipStr = "";
+                    tooltipStr += "时间 ：" + params[0].name + "<br/>";
+                    tooltipStr += params[0].seriesName + " ：" + params[0].value + "℃<br/>";
+                    tooltipStr += "天气 ：" + echartsWeather[params[0].dataIndex] + "<br/>";
+                    tooltipStr += "风向 ：" + echartsWindDirection[params[0].dataIndex] + "<br/>";
+                    tooltipStr += "风力 ：" + echartsWindPower[params[0].dataIndex] + "级" ;
+                    return tooltipStr
+                }
+            },
+           
+            xAxis:  {
+                type: 'category',
+                boundaryGap: false,
+                data: echartsDates
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} °C'
+                }
+            },
+            series: [
+                {
+                    name:'温度',
+                    type:'line',
+                    data:echartsDegree,
+                    markPoint: {
+                        data: [
+                            {type: 'max', name: '最大值'},
+                            {type: 'min', name: '最小值'}
+                        ]
+                    },
+                    markLine: {
+                        data: [
+                            {type: 'average', name: '平均值'}
+                        ]
+                    }
+                },
+                
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    }
+    </script>
+    <script src="https://apis.map.qq.com/ws/location/v1/ip?key=3BFBZ-ZKD3X-LW54A-ZT76D-E7AHO-4RBD5&&output=jsonp&callback=locationcb"></script>
+    <script src="https://wis.qq.com/weather/common?source=pc&weather_type=observe%7Cforecast_1h%7Cforecast_24h%7Cindex%7Calarm%7Climit%7Ctips%7Crise&province=四川省&city=成都市&county=&callback=weatherCb"></script>
+</body>
+</html>
