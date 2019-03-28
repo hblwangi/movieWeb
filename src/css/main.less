@@ -191,3 +191,59 @@
     width: 1080px;
     margin: 50px auto;
 }
+.car{
+    position: relative;
+    width: 1080px;
+    margin: 50px auto;
+    text-align: center;
+    .firstWord{
+        display: inline-block;
+        li{
+            float: left;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            color: royalblue;
+            margin-left: 8px;
+            border-radius: 3px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            border: 1px royalblue solid;
+        }
+        li:hover{
+            background:royalblue;
+            color: #fff;
+        }
+        .active{
+            background:royalblue;
+            color: #fff;
+        }
+    }
+    .carBrand{
+        padding-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 3;
+        align-content: space-between;
+        li{
+            width: 150px;
+            text-align: center;
+            margin-top: 20px;
+            .carImg{
+                margin: 0 auto;
+                width: 100px;
+                height: 100px;
+                transition: all .4s;
+                cursor: pointer;
+            }
+            .carImg:hover{
+                transform:translateY(-10px); 
+            }
+            .carName{
+                color: royalblue;
+                padding: 10px 0;
+            }
+        }
+    }
+}
